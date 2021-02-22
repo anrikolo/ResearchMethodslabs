@@ -2,6 +2,11 @@ import random
 import numpy as np
 import math
 #Кочерга Андрій ІВ-93 Віраінт 11
+def Fuva(a, b):
+    if a >= b:
+        return a / b
+    else:
+        return a / b
 m=5
 x1min,x1max = 10,60
 x2min,x2max = -30,45
@@ -33,9 +38,10 @@ sigma = math.sqrt((2 * (2 * m - 2)) / (m * (m - 4)))
 
 #4.4Обчислимо Fuv:
 Fuv=[]
-Fuv.append(Dispersia[0]/Dispersia[1])
-Fuv.append(Dispersia[2]/Dispersia[1])
-Fuv.append(Dispersia[2]/Dispersia[0])
+Fuv.append(Fuva(Dispersia[0], Dispersia[1]))
+Fuv.append(Fuva(Dispersia[2], Dispersia[0]))
+Fuv.append(Fuva(Dispersia[2], Dispersia[1]))
+
 
 # 4.5
 Ouv=[]

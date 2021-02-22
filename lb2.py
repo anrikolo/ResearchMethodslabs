@@ -6,7 +6,7 @@ def Fuva(a, b):
     if a >= b:
         return a / b
     else:
-        return a / b
+        return b / a
 m=5
 x1min,x1max = 10,60
 x2min,x2max = -30,45

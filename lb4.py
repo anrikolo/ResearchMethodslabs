@@ -6,11 +6,11 @@ from functools import reduce
 from random import randint
 import numpy as np
 import math
-
+from time import process_time
 class Lab4:
 
     def __init__(self, n, m):
-
+        self.Time=[]
         self.n = n
         self.m = m
 
@@ -115,12 +115,19 @@ class Lab4:
                 table.add_row(td_data[:columns])
                 td_data = td_data[columns:]
         print(table)
-
+        t1_start = process_time()
         self.Kohren(self.m, self.n, self.y, self.p, self.q, self.f1, self.f2)
-
+        t1_stop = process_time()
+        self.Time.append((t1_stop-t1_start))
+        t1_start = process_time()
         self.Student(self.m, self.n, self.y, self.av_y, self.norm_xt, self.f3, self.q)
-
+        t1_stop = process_time()
+        self.Time.append((t1_stop - t1_start))
+        t1_start = process_time()
         self.Fisher(self.m, self.n, 1, self.f3, self.q, self.factors_xt, self.y, self.natural_bi, self.y_x)
+        t1_stop = process_time()
+        self.Time.append((t1_stop - t1_start))
+        print("Час Виконаня перевірки : \nКохрена{}\nСтьюдента {} \nФішера {}\n ".format(self.Time[0],self.Time[1],self.Time[2]))
 
     def Natural(self, n, x1, x2, x3, av_y):
 

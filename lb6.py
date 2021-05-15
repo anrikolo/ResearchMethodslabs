@@ -118,6 +118,15 @@ def student_criteria(m, N, y_table, beta_coefficients):
     to_print = map(lambda x: x[0] + " " + x[1], zip(beta_i, importance_to_print))
     print(*to_print, sep="; ")
     print_equation(beta_coefficients, importance)
+    my_dict = {i: importance_to_print.count(i) for i in importance_to_print}
+    if my_dict["важливий"] > my_dict["неважливий"]:
+        print("Важливих - {}, неважливих - {}".format(my_dict["важливий"],my_dict["неважливий"]))
+        print("модель адекватна")
+        exit()
+    else:
+        print("Важливих - {}, неважливих - {}".format(my_dict["важливий"],my_dict["неважливий"]))
+        print("модель не адекватна")
+        exit()
     return importance
 
 
